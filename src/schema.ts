@@ -4,6 +4,7 @@ import { now } from './repository/MetaRepository';
 import {
   getNomineeByProgramID,
   getNominees,
+  insertNominee,
 } from './repository/NomineeRepository';
 import { getProgramByID, getPrograms } from './repository/ProgramRepository';
 import { getTeachers } from './repository/TeacherRepository';
@@ -23,6 +24,7 @@ const typeDefinitions = /* GraphQL */ `
   type Mutation {
     insertEOI(nominee_id: ID!, program_id: ID!): Int!
     deleteEOI(nominee_id: ID!, program_id: ID!): Int!
+    insertNominee(contact_email: String!, name: String!): Int!
   }
 
   type Program {
@@ -79,6 +81,11 @@ const resolvers = {
       parent: unknown,
       args: { nominee_id: string; program_id: string }
     ) => await deleteEOI(args.nominee_id, args.program_id),
+    insertNominee: async (
+      parent: unknown,
+      args: { contact_email: string; name: string }
+    ) =>
+      (await insertNominee(args.contact_email, args.name)).rows[0].nominee_id,
   },
 };
 

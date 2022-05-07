@@ -1,0 +1,3 @@
+mutation InsertNominee($contact_email: String!, $name: String!) {
+  insertNominee(contact_email: $contact_email, name: $name)
+}
