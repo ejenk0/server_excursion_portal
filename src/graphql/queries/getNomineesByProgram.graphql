@@ -1,0 +1,7 @@
+query GetNomineesByProgram($program_id: ID!) {
+  getNomineesByProgram(program_id: $program_id) {
+    nominee_id
+    name
+    contact_email
+  }
+}

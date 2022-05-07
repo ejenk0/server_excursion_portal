@@ -1,0 +1,6 @@
+query getTeachers {
+    getTeachers {
+        email
+        name
+    }
+}

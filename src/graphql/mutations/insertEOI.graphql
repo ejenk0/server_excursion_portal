@@ -1,0 +1,3 @@
+mutation InsertEOI($nominee_id: ID!, $program_id: ID!) {
+  insertEOI(nominee_id: $nominee_id, program_id: $program_id)
+}

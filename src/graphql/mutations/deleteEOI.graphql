@@ -1,0 +1,3 @@
+mutation DeleteEOI($nominee_id: ID!, $program_id: ID!) {
+  deleteEOI(nominee_id: $nominee_id, program_id: $program_id)
+}

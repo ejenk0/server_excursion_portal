@@ -1,0 +1,19 @@
+query GetProgramByID($program_id: ID!) {
+  getProgramByID(program_id: $program_id) {
+    program_id
+    program_name
+    year_levels
+    event_type
+    term
+    cost
+    location
+    pre_requisite
+    faculty_name
+    hod_email
+    hod_name
+    tic_emails
+    tic_names
+    details
+    consolidating_features
+  }
+}
