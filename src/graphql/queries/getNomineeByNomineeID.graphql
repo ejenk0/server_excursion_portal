@@ -1,0 +1,7 @@
+query GetNomineeByNomineeID($nominee_id: ID!) {
+  getNomineeByNomineeID(nominee_id: $nominee_id) {
+    contact_email
+    name
+    nominee_id
+  }
+}

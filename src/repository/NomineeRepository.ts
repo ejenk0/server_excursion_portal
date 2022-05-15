@@ -7,6 +7,12 @@ export async function getNominees() {
   return nominees;
 }
 
+export async function getNomineeByID(nominee_id: string) {
+  var sql = readFileSync('src/sql/query_nomineeByNomineeID.sql').toString();
+  const nominee = await pool.query(sql, [nominee_id]);
+  return nominee;
+}
+
 export async function getNomineeByProgramID(program_id: string) {
   var sql = readFileSync('src/sql/query_nomineesByProgramID.sql').toString();
   const nominees = await pool.query(sql, [program_id]);

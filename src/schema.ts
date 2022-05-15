@@ -2,6 +2,7 @@ import { makeExecutableSchema } from '@graphql-tools/schema';
 import { deleteEOI, insertEOI } from './repository/EOIRepository';
 import { now } from './repository/MetaRepository';
 import {
+  getNomineeByID,
   getNomineeByProgramID,
   getNominees,
   insertNominee,
@@ -16,6 +17,7 @@ const typeDefinitions = /* GraphQL */ `
     time: String!
     getTeachers: [Teacher]
     getNominees: [Nominee]
+    getNomineeByNomineeID(nominee_id: ID!): Nominee!
     getNomineesByProgram(program_id: ID!): [Nominee]
     getPrograms: [Program]
     getProgramByID(program_id: ID!): Program!
@@ -63,6 +65,10 @@ const resolvers = {
     time: async () => (await now()).rows[0]['now'],
     getTeachers: async () => (await getTeachers()).rows,
     getNominees: async () => (await getNominees()).rows,
+    getNomineeByNomineeID: async (
+      parent: unknown,
+      args: { nominee_id: string }
+    ) => (await getNomineeByID(args.nominee_id)).rows[0],
     getNomineesByProgram: async (
       parent: unknown,
       args: { program_id: string }
