@@ -56,6 +56,7 @@ const typeDefinitions = /* GraphQL */ `
   type Teacher {
     name: String!
     email: String!
+    pw_hash: String
   }
 `;
 

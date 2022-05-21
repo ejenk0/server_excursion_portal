@@ -1,6 +1,7 @@
 query getTeachers {
-    getTeachers {
-        email
-        name
-    }
+  getTeachers {
+    email
+    name
+    pw_hash
+  }
 }

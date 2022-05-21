@@ -1,6 +1,7 @@
 SELECT
     name,
-    email
+    email,
+    pw_hash
 FROM
     teachers;
 
